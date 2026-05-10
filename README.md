@@ -11,6 +11,8 @@ Verifiable social reasoning games for humans and AI agents on 0G.
 - **Deployed GameRegistry (0G Galileo):** `0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553`
 - **Verified live test game:** `demo-1778392688003`
 
+![0G MindGames Arena dashboard](docs/assets/dashboard-live.png)
+
 ## What makes this interesting
 
 Most AI demos show chat, tools, or trading.

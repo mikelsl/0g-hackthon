@@ -1,80 +1,118 @@
-# 0G APAC Hackathon Submission Skeleton
+# 0G APAC Hackathon Submission Draft
+
+## Project
+
+**0G MindGames Arena**
 
 ## One-line Pitch
 
-0G MindGames Arena is a verifiable social reasoning arena where humans and AI agents play deduction games, with transcripts on 0G Storage and outcomes/reputation anchored on 0G Chain.
+A verifiable social reasoning arena where humans and AI agents play deduction games, with match artifacts stored on 0G and outcomes anchored on 0G Chain.
 
 ## Problem
 
-Current AI agent demos mostly show tool use, trading, or assistants. They rarely test social reasoning, deception, trust calibration, or multi-agent interaction in a way that is replayable and verifiable.
+Most AI agent demos focus on chat, tool use, or trading. They rarely test the harder parts of intelligence that show up in real multi-agent environments:
+
+- trust calibration
+- deception resistance
+- persuasion
+- coordination under uncertainty
+- replayable social reasoning
+
+That leaves a gap between “an agent can answer questions” and “an agent can survive complex social interaction.”
 
 ## Solution
 
-We turn social deduction games into a benchmark + entertainment surface:
+0G MindGames Arena turns social deduction games into a benchmark and entertainment layer for autonomous agents.
 
-- humans and AI play together
-- every match generates replayable artifacts
-- public replay and private audit trails are separated
-- final results and storage roots are anchored onchain
+In the current MVP, a human and multiple AI agents play **Werewolf**. The system produces:
+
+- a raw full transcript
+- a judge-safe public replay transcript
+- a private hidden-role audit transcript
+- a structured final summary
+- a GameRegistry record on 0G Galileo
+
+This makes the match **replayable, inspectable, and verifiable** instead of a black-box AI demo.
 
 ## Why 0G
 
-- **0G Storage**: durable transcript / summary / audit artifact storage
-- **0G Chain**: immutable game results, roots, reputation, future settlement
-- **0G Compute**: pluggable AI reasoning backend for judges and players
-- **0G verification path**: replay root + contract root comparison
+### 0G Storage
+Stores transcripts, summaries, audit trails, and future agent memory artifacts as durable records.
 
-## Demo Scope
+### 0G Chain
+Anchors outcome, storage roots, reputation deltas, and future tournament / settlement logic.
 
-### What works now
+### 0G Compute
+Provides the pluggable reasoning layer for AI judges and players.
+
+### 0G verification path
+Enables judges to compare uploaded artifacts and contract records instead of trusting a demo video at face value.
+
+## What Works Today
 
 - human + AI Werewolf MVP
-- Telegram gameplay wrapper
-- public replay transcript + private audit transcript split
-- 0G Storage upload for raw/public/private/summary artifacts
-- GameRegistry recording on 0G Galileo
-- contract verification via `npm run verify:game`
+- personality-rich AI players
+- public replay transcript / private audit transcript separation
+- 0G Storage upload flow for replay, audit, and summary artifacts
+- GameRegistry write path on 0G Galileo
+- multi-match replay browser
+- contract verification script
 
-### What is shown in demo
+## Demo Flow
 
-1. start a match
-2. generate transcript and summary artifacts
-3. upload to 0G
-4. finalize to GameRegistry
-5. open verification dashboard
-6. compare replay artifacts with chain record
+1. Start a game
+2. Run the social reasoning loop between human + AI players
+3. Generate replay, audit, and summary artifacts
+4. Upload artifacts to 0G Storage
+5. Record outcome and roots in GameRegistry on 0G Galileo
+6. Open the verification dashboard
+7. Verify that artifacts and onchain record match the claimed game
 
 ## Differentiators
 
-- social reasoning instead of generic chat agent demo
-- multiple personality-rich AI players
-- public replay vs private audit separation
-- verifiable match history instead of black-box output
-- future expansion path to other reasoning games and wager-backed tournaments
+- social reasoning benchmark instead of generic chat demo
+- multiple AI agents with distinct personalities and incentives
+- public replay separated from private audit trail
+- verifiable match history rather than unverifiable “AI said this” output
+- strong expansion path to tournaments, agent reputation, and richer reasoning games
 
-## Current Proof Points
+## Proof Points
 
-- Deployed GameRegistry: `0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553`
-- Verified live test game: `demo-1778392688003`
-- Verification command:
+- **Live dashboard:** https://openclaw.yuzu-swap.com/dashboard/0g/
+- **GitHub repo:** https://github.com/mikelsl/0g-hackthon
+- **Deployed GameRegistry:** `0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553`
+- **Verified live test game:** `demo-1778392688003`
+
+Verification command:
 
 ```bash
 npm run verify:game -- --gameId demo-1778392688003
 ```
 
-## Submission Assets Needed
+## Why This Matters Beyond Games
 
-- architecture diagram
-- 2-3 annotated dashboard screenshots
-- short demo video
-- concise GitHub README
-- optional product roadmap slide
+Werewolf is the first interface, not the whole product.
 
-## Open Product Decision
+The bigger direction is a **social intelligence layer for autonomous agents**:
 
-Keep wager settlement as:
+- benchmark environments for multi-agent reasoning
+- persistent onchain reputation based on behavior under uncertainty
+- replayable datasets for agent training and evaluation
+- tournament or DAO governance scenarios where social reasoning matters
 
-- **Option A:** stubbed architecture only
-- **Option B:** limited demo on testnet
+## Scope Decision for Submission
 
-Recommendation: decide after submission materials are stable.
+Wager settlement is intentionally **not** the center of this submission.
+
+Current recommendation:
+
+- keep wager / settlement as architecture-ready future scope
+- keep the submission focused on verifiable AI social reasoning + 0G Storage / Chain integration
+
+## Assets Included
+
+- architecture and product docs in `docs/`
+- live replay verification dashboard
+- deployed testnet contract
+- example verified live game
+- public GitHub repository
