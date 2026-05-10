@@ -56,27 +56,31 @@ Lets judges verify that uploaded artifacts and contract records match the claime
 
 ## Architecture at a glance
 
-```text
-Human / Telegram / Demo CLI
-          ↓
-   Werewolf game engine
-          ↓
- AI players + judge adapter
-          ↓
- Artifact pipeline
-   ├─ public replay transcript
-   ├─ private audit transcript
-   └─ summary
-          ↓
-      0G Storage
-          ↓
-    GameRegistry.sol
-          ↓
- Verification dashboard + CLI verifier
+```mermaid
+flowchart TD
+    A[Human / Telegram / Demo CLI] --> B[WerewolfEngine]
+    B --> C[AI Players + Judge Adapter]
+    C --> D[ComputeAdapter]
+    D --> D1[0G Compute backend]
+    D --> D2[LLM fallback / mock backend]
+    B --> E[Artifact Pipeline]
+    E --> E1[Raw transcript]
+    E --> E2[Public replay transcript]
+    E --> E3[Private audit transcript]
+    E --> E4[Summary]
+    E --> F[StorageAdapter]
+    F --> G[0G Storage]
+    E1 --> H[GameRegistry.sol]
+    E4 --> H
+    H --> I[0G Galileo]
+    G --> J[Replay Verification Dashboard]
+    I --> J
+    J --> K[Judge / Reviewer verification]
 ```
 
 More detail:
 - `docs/ARCHITECTURE.md`
+- `docs/ARCHITECTURE_DIAGRAM.md`
 - `docs/CONTRACTS.md`
 - `docs/0G_STORAGE.md`
 
@@ -162,6 +166,16 @@ npm run contracts:compile
 ```bash
 npm run deploy:registry:0g
 ```
+
+## What judges see
+
+### Dashboard overview
+
+![Dashboard browser view](docs/assets/dashboard-browser-annotated.png)
+
+### Verification view
+
+![Dashboard verification view](docs/assets/dashboard-verification-annotated.png)
 
 ## Verification model
 

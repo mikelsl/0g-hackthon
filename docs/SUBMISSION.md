@@ -112,6 +112,8 @@ Current recommendation:
 ## Assets Included
 
 - architecture and product docs in `docs/`
+- GitHub-renderable architecture diagram: `docs/ARCHITECTURE_DIAGRAM.md`
+- annotated dashboard screenshots in `docs/assets/`
 - live replay verification dashboard
 - deployed testnet contract
 - example verified live game
