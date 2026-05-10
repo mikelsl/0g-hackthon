@@ -224,6 +224,7 @@ What is intentionally left limited in the MVP:
 ## Docs for judges / reviewers
 
 - `docs/SUBMISSION.md`
+- `docs/SUBMISSION_FINAL_ANSWERS.md`
 - `docs/DEMO_SCRIPT.md`
 - `docs/SCREENSHOT_CHECKLIST.md`
 - `docs/TASKS.md`
