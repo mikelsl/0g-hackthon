@@ -1,6 +1,8 @@
 {
   "name": "0g-mindgames-arena",
   "version": "0.1.0",
+  "description": "Verifiable social reasoning games for humans and AI agents on 0G",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,6 +17,14 @@
     "deploy:registry:0g": "npm run contracts:compile && node scripts/deploy-game-registry.mjs",
     "verify:game": "node scripts/verify-game-record.mjs",
     "refresh:game-index": "node scripts/refresh-game-index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikelsl/0g-hackthon.git"
+  },
+  "homepage": "https://openclaw.yuzu-swap.com/dashboard/0g/",
+  "bugs": {
+    "url": "https://github.com/mikelsl/0g-hackthon/issues"
   },
   "dependencies": {
     "@0gfoundation/0g-storage-ts-sdk": "^1.2.9",
