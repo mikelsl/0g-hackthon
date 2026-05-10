@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0G MindGames Arena — Replay Verification</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero panel">
+        <div>
+          <p class="eyebrow">0G MindGames Arena</p>
+          <h1>Verifiable AI Social Reasoning Replay</h1>
+          <p class="lede">
+            Every match produces durable transcript and summary artifacts on 0G Storage.
+            This dashboard is the judge-facing verification surface for uploaded games.
+          </p>
+        </div>
+        <div class="status-card">
+          <span class="pulse"></span>
+          <div>
+            <strong id="networkLabel">0G Galileo</strong>
+            <small id="storageMode">Storage: loading…</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid two-col-wide">
+        <article class="panel game-list-panel">
+          <div class="section-head slim">
+            <div>
+              <p class="eyebrow">Game Browser</p>
+              <h2>Uploaded matches</h2>
+            </div>
+            <span class="pill" id="gameCountPill">0 games</span>
+          </div>
+          <div class="game-list" id="gameList"></div>
+        </article>
+
+        <div class="detail-stack">
+          <article class="panel">
+            <p class="eyebrow">Game Record</p>
+            <h2 id="gameId">Loading…</h2>
+            <dl class="facts">
+              <div><dt>Winner</dt><dd id="winner">—</dd></div>
+              <div><dt>Event Count</dt><dd id="eventCount">—</dd></div>
+              <div><dt>Engine</dt><dd id="engineLabel">—</dd></div>
+              <div><dt>Registry</dt><dd id="registryLabel">—</dd></div>
+            </dl>
+          </article>
+
+          <article class="panel">
+            <p class="eyebrow">Verification Checklist</p>
+            <ul class="checklist" id="checklist"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="grid two">
+        <article class="panel artifact">
+          <p class="eyebrow">Public Replay Artifact</p>
+          <h3>Judge-safe transcript</h3>
+          <code id="transcriptRoot">—</code>
+          <div class="actions">
+            <a id="transcriptTx" target="_blank" rel="noreferrer">View transaction</a>
+            <button data-copy="transcriptRoot">Copy root</button>
+          </div>
+          <p class="muted" id="transcriptUri">—</p>
+        </article>
+
+        <article class="panel artifact">
+          <p class="eyebrow">Private Audit Artifact</p>
+          <h3>Hidden-role audit transcript</h3>
+          <code id="auditRoot">—</code>
+          <div class="actions">
+            <a id="auditTx" target="_blank" rel="noreferrer">View transaction</a>
+            <button data-copy="auditRoot">Copy root</button>
+          </div>
+          <p class="muted" id="auditUri">—</p>
+        </article>
+      </section>
+
+      <section class="grid two">
+        <article class="panel artifact">
+          <p class="eyebrow">Summary Artifact</p>
+          <h3>Outcome + reputation deltas</h3>
+          <code id="summaryRoot">—</code>
+          <div class="actions">
+            <a id="summaryTx" target="_blank" rel="noreferrer">View transaction</a>
+            <button data-copy="summaryRoot">Copy root</button>
+          </div>
+          <p class="muted" id="summaryUri">—</p>
+        </article>
+
+        <article class="panel artifact">
+          <p class="eyebrow">On-chain Registry</p>
+          <h3>GameRegistry verification</h3>
+          <dl class="facts facts-single compact">
+            <div><dt>Registry Address</dt><dd id="chainRegistryAddress">—</dd></div>
+            <div><dt>Game Key</dt><dd id="chainGameKey">—</dd></div>
+            <div><dt>Recorded Transcript Root</dt><dd id="chainTranscriptRoot">—</dd></div>
+            <div><dt>Recorded Summary Root</dt><dd id="chainSummaryRoot">—</dd></div>
+          </dl>
+          <div class="actions">
+            <a id="chainTx" target="_blank" rel="noreferrer">View finalize tx</a>
+            <a id="chainCreateTx" target="_blank" rel="noreferrer">View create tx</a>
+          </div>
+          <p class="muted" id="chainNote">—</p>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Verification View</p>
+            <h2>What judges should verify</h2>
+          </div>
+          <span class="pill">Replay + Contract</span>
+        </div>
+        <div class="verify-grid">
+          <div class="verify-card ok">
+            <strong>Public replay</strong>
+            <p id="verifyPublicNote">—</p>
+          </div>
+          <div class="verify-card ok">
+            <strong>Private audit</strong>
+            <p id="verifyAuditNote">—</p>
+          </div>
+          <div class="verify-card ok">
+            <strong>Summary parity</strong>
+            <p id="verifySummaryNote">—</p>
+          </div>
+          <div class="verify-card warn">
+            <strong>Chain interpretation</strong>
+            <p id="verifyChainNote">—</p>
+          </div>
+        </div>
+        <ol class="timeline" id="timeline"></ol>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow">Pitch Framing</p>
+        <h2>Why this is more than a game</h2>
+        <div class="cards">
+          <div>
+            <strong>0G Storage</strong>
+            <p>Stores immutable social reasoning transcripts, summaries, and future agent memories.</p>
+          </div>
+          <div>
+            <strong>0G Chain</strong>
+            <p>Registers game outcomes, storage roots, reputation deltas, and future wager settlements.</p>
+          </div>
+          <div>
+            <strong>0G Compute</strong>
+            <p>Adapter-ready AI reasoning layer for personality-rich agents and social benchmark tasks.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

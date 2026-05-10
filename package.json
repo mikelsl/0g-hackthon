@@ -1,0 +1,29 @@
+{
+  "name": "0g-mindgames-arena",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "tsx src/demo/run-local-game.ts",
+    "check": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "demo:llm": "tsx src/demo/run-llm-game.ts",
+    "bot:telegram": "tsx src/bot/run-telegram-bot.ts",
+    "demo:0g": "STORAGE_BACKEND=0g tsx src/demo/run-local-game.ts",
+    "web:serve": "node scripts/serve-web.mjs",
+    "contracts:compile": "node scripts/compile-contracts.mjs",
+    "deploy:registry:0g": "npm run contracts:compile && node scripts/deploy-game-registry.mjs",
+    "verify:game": "node scripts/verify-game-record.mjs",
+    "refresh:game-index": "node scripts/refresh-game-index.mjs"
+  },
+  "dependencies": {
+    "@0gfoundation/0g-storage-ts-sdk": "^1.2.9",
+    "@types/node": "^22.10.0",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.1",
+    "solc": "^0.8.35",
+    "telegraf": "^4.16.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

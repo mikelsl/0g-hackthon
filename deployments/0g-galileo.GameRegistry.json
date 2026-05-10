@@ -1,0 +1,10 @@
+{
+  "network": "0g-galileo-testnet",
+  "rpc": "https://evmrpc-testnet.0g.ai",
+  "contract": "GameRegistry",
+  "address": "0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553",
+  "deployer": "0xd2Ef5A58d3F8Ba869C2a889afE55397717a8E0F6",
+  "txHash": "0x48817635b26c6067fe61c23669dd25fb7ffd568e18056548ff0c5b3dfa696ef0",
+  "blockNumber": 32411483,
+  "deployedAt": "2026-05-09T15:12:13.016Z"
+}

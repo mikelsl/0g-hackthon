@@ -1,0 +1,82 @@
+[
+  {
+    "gameId": "demo-1778392688003",
+    "winner": "wolves",
+    "eventCount": 28,
+    "generatedAt": "2026-05-10T05:59:32.003Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/demo-1778392688003/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "demo-1778392472021",
+    "winner": "wolves",
+    "eventCount": 16,
+    "generatedAt": "2026-05-10T05:56:00.535Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/demo-1778392472021/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "demo-1778392460756",
+    "winner": "wolves",
+    "eventCount": 17,
+    "generatedAt": "2026-05-10T05:54:20.760Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778392460756/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778392311051",
+    "winner": "wolves",
+    "eventCount": 16,
+    "generatedAt": "2026-05-10T05:53:18.275Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/demo-1778392311051/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "demo-1778392228927",
+    "winner": "wolves",
+    "eventCount": 16,
+    "generatedAt": "2026-05-10T05:50:28.930Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778392228927/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778391667473",
+    "winner": "wolves",
+    "eventCount": 17,
+    "generatedAt": "2026-05-10T05:41:07.477Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778391667473/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778339541021",
+    "winner": "wolves",
+    "eventCount": 17,
+    "generatedAt": "2026-05-09T15:13:12.465Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/demo-1778339541021/replay-manifest.json",
+    "registry": "Mock registry now; GameRegistry.sol next"
+  },
+  {
+    "gameId": "demo-1778339269945",
+    "winner": "wolves",
+    "eventCount": 17,
+    "generatedAt": "2026-05-09T15:07:49.947Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778339269945/replay-manifest.json",
+    "registry": "Mock registry now; GameRegistry.sol next"
+  }
+]
