@@ -59,6 +59,7 @@ Most AI agent demos focus on chat, tool use, or trading. They rarely test the ha
 - **Demo video:** https://github.com/mikelsl/0g-hackthon/raw/main/docs/assets/0g-mindgames-demo-v8-side-by-side-seer-with-links-2026-05-11.mp4
 - **Dashboard:** https://openclaw.yuzu-swap.com/dashboard/0g/
 - **GitHub:** https://github.com/mikelsl/0g-hackthon
+- **X post:** https://x.com/mic_klaw/status/2053855012728811783
 
 ## Proof Points
 
