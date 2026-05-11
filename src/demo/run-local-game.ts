@@ -25,6 +25,7 @@ const { state, summary } = await engine.runToEnd(initial);
 
 await writeLocalShadowArtifact(`${gameId}/transcript.json`, state.events);
 await writeLocalShadowArtifact(`${gameId}/summary.raw.json`, summary);
+if (summary.agentMemories) await writeLocalShadowArtifact('latest-agent-memories.json', summary.agentMemories);
 const rawTranscriptArtifact = await storage.putJson(`${gameId}/transcript.json`, state.events);
 const rawSummaryArtifact = await storage.putJson(`${gameId}/summary.raw.json`, summary);
 const chainRecord = await chain.finalizeGame(state, summary, rawTranscriptArtifact.root, rawSummaryArtifact.root);

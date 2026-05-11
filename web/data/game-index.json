@@ -1,5 +1,192 @@
 [
   {
+    "gameId": "tg-1778501266590",
+    "winner": "villagers",
+    "eventCount": 36,
+    "generatedAt": "2026-05-11T12:18:00.768Z",
+    "networkLabel": "0G Mainnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/tg-1778501266590/replay-manifest.json",
+    "registry": "0G Mainnet GameRegistry 0x5677F20bD56538F20051Fe8Bf002e6D06780d85c",
+    "chain": {
+      "registryAddress": "0x5677F20bD56538F20051Fe8Bf002e6D06780d85c",
+      "gameKey": "0xcf8ca2d985b74831267237549da457119b32019091f04b29d65fa78544b51c13",
+      "txHash": "0x92b37e58678b0e52c7edc805e47fb7f380962c83536fa541f4a85690a0210851",
+      "txUrl": "https://chainscan.0g.ai/tx/0x92b37e58678b0e52c7edc805e47fb7f380962c83536fa541f4a85690a0210851",
+      "createTxHash": "0xe2497ebece1b1b6f40773d21282cef54093c5532fa27856259c963a15b6ca669",
+      "createTxUrl": "https://chainscan.0g.ai/tx/0xe2497ebece1b1b6f40773d21282cef54093c5532fa27856259c963a15b6ca669",
+      "recordedTranscriptRoot": "0x1ee71738378263a4644a0cc7cecfba981d6fa0f834b7d9074d519acdcc116bb8",
+      "recordedSummaryRoot": "0x8218f7b2c8d4bbade286171a96804ebff2e30402b044eec88c7ade90e2115409",
+      "recordedReputationRoot": "0xaf93c30966b5338aaaacfefd2a32cf707558aca6f454661d9db5faa1563f1290",
+      "mainnetContractUrl": "https://chainscan.0g.ai/address/0x5677F20bD56538F20051Fe8Bf002e6D06780d85c",
+      "deployTxHash": "0x59f1423635ec1ffe7aac20dc19739c56c527841b93298fae4fe733b6f54a17ed",
+      "deployTxUrl": "https://chainscan.0g.ai/tx/0x59f1423635ec1ffe7aac20dc19739c56c527841b93298fae4fe733b6f54a17ed"
+    },
+    "verificationChecklist": [
+      "0G mainnet GameRegistry proof is available for the finalized game roots and winner."
+    ]
+  },
+  {
+    "gameId": "tg-1778501076007",
+    "winner": "villagers",
+    "eventCount": 24,
+    "generatedAt": "2026-05-11T12:07:08.253Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/tg-1778501076007/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "tg-1778495838331",
+    "winner": "wolves",
+    "eventCount": 18,
+    "generatedAt": "2026-05-11T10:44:31.947Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/tg-1778495838331/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "tg-1778491997733",
+    "winner": "wolves",
+    "eventCount": 29,
+    "generatedAt": "2026-05-11T09:53:22.889Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/tg-1778491997733/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "tg-1778489985681",
+    "winner": "villagers",
+    "eventCount": 24,
+    "generatedAt": "2026-05-11T09:03:37.630Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/tg-1778489985681/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "demo-1778483840649",
+    "winner": "wolves",
+    "eventCount": 30,
+    "generatedAt": "2026-05-11T07:17:20.661Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778483840649/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "llm-demo-1778483787905",
+    "winner": "wolves",
+    "eventCount": 43,
+    "generatedAt": "2026-05-11T07:16:27.918Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/llm-demo-1778483787905/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778482654186",
+    "winner": "wolves",
+    "eventCount": 37,
+    "generatedAt": "2026-05-11T06:59:45.827Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/demo-1778482654186/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "demo-1778482642292",
+    "winner": "wolves",
+    "eventCount": 35,
+    "generatedAt": "2026-05-11T06:57:22.305Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778482642292/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778482257973",
+    "winner": "wolves",
+    "eventCount": 35,
+    "generatedAt": "2026-05-11T06:50:57.984Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778482257973/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778479822983",
+    "winner": "villagers",
+    "eventCount": 30,
+    "generatedAt": "2026-05-11T06:10:22.994Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778479822983/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778479794406",
+    "winner": "wolves",
+    "eventCount": 36,
+    "generatedAt": "2026-05-11T06:09:54.418Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778479794406/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778478870644",
+    "winner": "villagers",
+    "eventCount": 17,
+    "generatedAt": "2026-05-11T05:56:05.598Z",
+    "networkLabel": "0G Galileo Testnet",
+    "storageMode": "0G Storage turbo",
+    "manifestPath": "artifacts/demo-1778478870644/replay-manifest.json",
+    "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553"
+  },
+  {
+    "gameId": "demo-1778478836693",
+    "winner": "wolves",
+    "eventCount": 30,
+    "generatedAt": "2026-05-11T05:53:56.704Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778478836693/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778423620361",
+    "winner": "villagers",
+    "eventCount": 30,
+    "generatedAt": "2026-05-10T14:33:40.372Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778423620361/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778422770717",
+    "winner": "villagers",
+    "eventCount": 17,
+    "generatedAt": "2026-05-10T14:19:30.728Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778422770717/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
+    "gameId": "demo-1778422735692",
+    "winner": "wolves",
+    "eventCount": 40,
+    "generatedAt": "2026-05-10T14:18:55.703Z",
+    "networkLabel": "Local Dev",
+    "storageMode": "Local JSON artifacts",
+    "manifestPath": "artifacts/demo-1778422735692/replay-manifest.json",
+    "registry": "Mock registry"
+  },
+  {
     "gameId": "demo-1778392688003",
     "winner": "wolves",
     "eventCount": 28,

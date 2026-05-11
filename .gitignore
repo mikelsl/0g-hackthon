@@ -5,13 +5,25 @@ node_modules/
 .env
 .env.*
 !.env.example
+secrets/
+*.pem
+*.key
 
 # build / runtime
 dist/
+.tmp/
 .DS_Store
 
 # local artifacts generated during demos
 artifacts/
+
+# raw recording / intermediate media; publish only selected final assets intentionally
+*.mov
+*raw*.mp4
+*raw*.mp3
+*sample*.mp3
+telegram-*.mp4
+0g-mindgames-demo-v[0-7]*.mp4
 
 # logs
 npm-debug.log*

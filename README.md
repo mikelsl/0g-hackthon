@@ -2,14 +2,17 @@
 
 Verifiable social reasoning games for humans and AI agents on 0G.
 
-**0G MindGames Arena** turns social deduction games into replayable, auditable, onchain-linked AI benchmarks. In the current hackathon MVP, a human and multiple AI agents play **Werewolf**, produce structured match artifacts, upload them to **0G Storage**, and anchor the outcome plus storage roots on **0G Galileo**.
+**0G MindGames Arena** turns social deduction games into replayable, auditable, onchain-linked AI benchmarks. In the current hackathon MVP, a human and multiple AI agents play **Werewolf**, produce structured match artifacts, upload them to **0G Storage**, and anchor the outcome plus storage roots on **0G Chain**. For hackathon submission, the GameRegistry contract is deployed on **0G Mainnet** with a live finalized proof record.
 
 ## Live Demo
 
 - **Verification dashboard:** https://openclaw.yuzu-swap.com/dashboard/0g/
+- **Demo video:** [`docs/assets/0g-mindgames-demo-v8-side-by-side-seer-with-links-2026-05-11.mp4`](docs/assets/0g-mindgames-demo-v8-side-by-side-seer-with-links-2026-05-11.mp4)
 - **GitHub repo:** https://github.com/mikelsl/0g-hackthon
-- **Deployed GameRegistry (0G Galileo):** `0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553`
-- **Verified live test game:** `demo-1778392688003`
+- **Deployed GameRegistry (0G Mainnet):** `0x5677F20bD56538F20051Fe8Bf002e6D06780d85c`
+- **0G Mainnet contract:** https://chainscan.0g.ai/address/0x5677F20bD56538F20051Fe8Bf002e6D06780d85c
+- **0G Mainnet finalized proof tx:** https://chainscan.0g.ai/tx/0x92b37e58678b0e52c7edc805e47fb7f380962c83536fa541f4a85690a0210851
+- **Verified live Telegram game:** `tg-1778501266590`
 
 ![0G MindGames Arena dashboard](docs/assets/dashboard-live.png)
 
@@ -32,6 +35,8 @@ Current MVP includes:
 
 - human + AI Werewolf match flow
 - multiple personality-rich AI players
+- 0G Compute Direct speech generation with Qwen 2.5 7B for more varied in-character dialogue
+- layered agent memory artifacts for current-game evidence and cross-game priors
 - judge-safe **public replay transcript**
 - hidden-role **private audit transcript**
 - final summary artifact
@@ -49,7 +54,7 @@ Stores durable transcripts, summaries, audit logs, and future agent memory artif
 Anchors game results, artifact roots, reputation updates, and future tournament / wager settlement.
 
 ### 0G Compute
-Provides the pluggable reasoning layer for AI players and moderators.
+Provides the pluggable reasoning layer for AI players and moderators. The current demo supports 0G Compute Direct through an OpenAI-compatible provider endpoint, using `qwen/qwen-2.5-7b-instruct` for colorful public speeches while deterministic game actions keep live demos stable.
 
 ### Verification path
 Lets judges verify that uploaded artifacts and contract records match the claimed game outcome.
@@ -167,6 +172,21 @@ npm run contracts:compile
 npm run deploy:registry:0g
 ```
 
+
+## 0G Compute speech mode
+
+For live demos that need more varied agent language without making every game action depend on many model calls, use:
+
+```bash
+COMPUTE_BACKEND=0g-speech npm run demo:llm
+```
+
+This mode sends public speeches to the configured 0G Compute/OpenAI-compatible endpoint and keeps vote, kill, and seer choices on deterministic adapter logic. That gives the agents more personality while preserving predictable demo flow. For 0G Direct providers, keep `LLM_MIN_REQUEST_INTERVAL_MS` high enough for provider rate limits.
+
+## Security before publishing
+
+Before any GitHub push, release, public zip, gist, or other external sync, run a strict review. Do **not** publish `.env`, `secrets/`, private keys, API keys, bearer tokens, cookies, local credential paths, raw Authorization headers, or unredacted logs/screenshots. Public keys, wallet addresses, contract addresses, endpoints, and tx hashes may still reveal project relationships; confirm with the project owner before publishing them.
+
 ## What judges see
 
 ### Dashboard overview
@@ -214,12 +234,14 @@ What is already real today:
 - working verification dashboard
 - multi-match replay browser
 - contract verification script
+- 0G Compute Direct integration for richer agent speech
+- 0G-native layered agent memory artifacts and dashboard roots
 
 What is intentionally left limited in the MVP:
 
 - wager settlement is architecture-ready but not central to submission
 - Telegram gameplay wrapper is MVP-level
-- richer 0G Compute integration can replace current mock / adapter paths later
+- live 0G Compute is currently used for speech enrichment; vote / night decisions stay deterministic in demo mode to control cost, rate limits, and live-game stability
 
 ## Docs for judges / reviewers
 

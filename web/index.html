@@ -94,6 +94,49 @@
         </article>
 
         <article class="panel artifact">
+          <p class="eyebrow">Agent Memory Artifact</p>
+          <h3>0G memory manifest</h3>
+          <code id="agentMemoryRoot">—</code>
+          <div class="actions">
+            <a id="agentMemoryTx" target="_blank" rel="noreferrer">View transaction</a>
+            <button data-copy="agentMemoryRoot">Copy root</button>
+          </div>
+          <p class="muted" id="agentMemoryUri">—</p>
+        </article>
+      </section>
+
+      <section class="grid two">
+        <article class="panel artifact">
+          <p class="eyebrow">Current-game Memory Layer</p>
+          <h3>Grounded evidence index</h3>
+          <code id="currentMemoryRoot">—</code>
+          <div class="actions">
+            <a id="currentMemoryTx" target="_blank" rel="noreferrer">View transaction</a>
+            <button data-copy="currentMemoryRoot">Copy root</button>
+          </div>
+          <p class="muted" id="currentMemoryNote">—</p>
+        </article>
+
+        <article class="panel artifact">
+          <p class="eyebrow">Cross-game Memory Layer</p>
+          <h3>Long-term agent state</h3>
+          <code id="crossMemoryRoot">—</code>
+          <div class="actions">
+            <a id="crossMemoryTx" target="_blank" rel="noreferrer">View transaction</a>
+            <button data-copy="crossMemoryRoot">Copy root</button>
+          </div>
+          <p class="muted" id="crossMemoryNote">—</p>
+        </article>
+      </section>
+
+      <section class="grid two">
+        <article class="panel">
+          <p class="eyebrow">Agent Memory View</p>
+          <h3>What agents carry into the next match</h3>
+          <div class="memory-list" id="agentMemoryList"></div>
+        </article>
+
+        <article class="panel artifact">
           <p class="eyebrow">On-chain Registry</p>
           <h3>GameRegistry verification</h3>
           <dl class="facts facts-single compact">
@@ -108,6 +151,17 @@
           </div>
           <p class="muted" id="chainNote">—</p>
         </article>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Judge Explanation</p>
+            <h2>How memory, transcript, summary, and chain record fit together</h2>
+          </div>
+          <span class="pill">Replay + Memory + Contract</span>
+        </div>
+        <div class="judge-map" id="judgeMap"></div>
       </section>
 
       <section class="panel">

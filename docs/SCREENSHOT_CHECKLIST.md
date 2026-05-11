@@ -6,7 +6,7 @@
 - public replay artifact + private audit artifact cards
 - on-chain registry card with create/finalize tx links
 - verification view cards
-- terminal output for `npm run verify:game -- --gameId demo-1778392688003`
+- terminal output for `npm run verify:game -- --gameId demo-1778478870644`
 
 ## Nice-to-have
 

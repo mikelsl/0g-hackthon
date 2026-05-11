@@ -39,6 +39,11 @@ const DEFAULTS: Record<ZeroGNetwork, Record<ZeroGStorageMode, { evmRpc: string; 
 
 export class ZeroGStorageAdapter implements StorageAdapter {
   private readonly config: ZeroGStorageConfig;
+  private readonly provider: ethers.JsonRpcProvider;
+  private readonly signer: ethers.Wallet;
+  private readonly indexer: Indexer;
+  private uploadQueue: Promise<unknown> = Promise.resolve();
+  private nextNonce?: number;
 
   constructor(config?: Partial<ZeroGStorageConfig>) {
     const network = (config?.network ?? process.env.ZEROG_NETWORK ?? 'testnet') as ZeroGNetwork;
@@ -54,9 +59,18 @@ export class ZeroGStorageAdapter implements StorageAdapter {
       evmRpc: config?.evmRpc ?? process.env.ZEROG_EVM_RPC ?? defaults.evmRpc,
       indexerRpc: config?.indexerRpc ?? process.env.ZEROG_INDEXER_RPC ?? defaults.indexerRpc
     };
+    this.provider = new ethers.JsonRpcProvider(this.config.evmRpc);
+    this.signer = new ethers.Wallet(this.config.privateKey, this.provider);
+    this.indexer = new Indexer(this.config.indexerRpc);
   }
 
   async putJson(path: string, value: unknown): Promise<StoredArtifact> {
+    const task = this.uploadQueue.then(() => this.putJsonNow(path, value));
+    this.uploadQueue = task.catch(() => undefined);
+    return task;
+  }
+
+  private async putJsonNow(path: string, value: unknown): Promise<StoredArtifact> {
     const payload = {
       path,
       contentType: 'application/json',
@@ -65,12 +79,21 @@ export class ZeroGStorageAdapter implements StorageAdapter {
     };
     const bytes = new TextEncoder().encode(JSON.stringify(payload, null, 2));
     const data = new MemData(bytes);
-    const provider = new ethers.JsonRpcProvider(this.config.evmRpc);
-    const signer = new ethers.Wallet(this.config.privateKey, provider);
-    const indexer = new Indexer(this.config.indexerRpc);
 
-    const [tx, err] = await indexer.upload(data, this.config.evmRpc, signer as never);
-    if (err !== null) throw new Error(`0G Storage upload failed: ${String(err)}`);
+    const nonce = await this.consumeNonce();
+    const finalityRequired = process.env.ZEROG_STORAGE_FINALITY_REQUIRED === '1';
+    const [tx, err] = await this.indexer.upload(data, this.config.evmRpc, this.signer as never, {
+      nonce: BigInt(nonce),
+      // Waiting for finalized storage-node logs can take minutes on Galileo and
+      // block the Telegram game after the chain tx has already landed. For demo
+      // artifacts, tx submission + root hash are enough; verification still uses
+      // the returned roots and onchain registry tx.
+      finalityRequired
+    });
+    if (err !== null) {
+      this.nextNonce = undefined;
+      throw new Error(`0G Storage upload failed: ${String(err)}`);
+    }
 
     const rootHash = this.extractRootHash(tx);
     const txHash = this.extractTxHash(tx);
@@ -87,6 +110,17 @@ export class ZeroGStorageAdapter implements StorageAdapter {
         path
       }
     };
+  }
+
+  private async consumeNonce(): Promise<number> {
+    const pending = await this.provider.getTransactionCount(this.signer.address, 'pending');
+    // Storage uploads may be interleaved with GameRegistry or other wallet txs.
+    // Always advance to the chain's pending nonce if an external tx consumed
+    // nonces since this adapter was constructed.
+    this.nextNonce = Math.max(this.nextNonce ?? pending, pending);
+    const nonce = this.nextNonce;
+    this.nextNonce += 1;
+    return nonce;
   }
 
   private extractRootHash(tx: unknown): string {

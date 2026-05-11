@@ -4,11 +4,15 @@ import type { GameState, GameSummary } from '../types/game.js';
 import { buildTranscriptViews } from '../transcript/transcriptViews.js';
 import { updateGameIndex } from '../web/gameIndex.js';
 import { writeReplayManifest } from '../web/replayManifest.js';
+import { buildAgentMemoryManifest, buildCrossGameMemoryState, buildCurrentGameMemoryIndex } from '../agents/memoryArtifacts.js';
 
 export interface PersistGameArtifactsResult {
   publicTranscriptArtifact: StoredArtifact;
   privateAuditTranscriptArtifact: StoredArtifact;
   summaryArtifact: StoredArtifact;
+  agentMemoryArtifact?: StoredArtifact;
+  currentGameMemoryArtifact?: StoredArtifact;
+  crossGameMemoryArtifact?: StoredArtifact;
 }
 
 export async function persistGameArtifacts(
@@ -28,6 +32,24 @@ export async function persistGameArtifacts(
   const publicTranscriptArtifact = await storage.putJson(`${state.id}/public-transcript.json`, publicTranscript);
   const privateAuditTranscriptArtifact = await storage.putJson(`${state.id}/private-audit-transcript.json`, privateAuditTranscript);
   const summaryArtifact = await storage.putJson(`${state.id}/summary.json`, summary);
+  let currentGameMemoryArtifact: StoredArtifact | undefined;
+  let crossGameMemoryArtifact: StoredArtifact | undefined;
+  let agentMemoryArtifact: StoredArtifact | undefined;
+
+  if (summary.agentMemories) {
+    const currentGameMemory = buildCurrentGameMemoryIndex(state);
+    const crossGameMemory = buildCrossGameMemoryState(summary);
+    currentGameMemoryArtifact = await storage.putJson(`${state.id}/memory/current-game-memory.v1.json`, currentGameMemory);
+    crossGameMemoryArtifact = await storage.putJson(`${state.id}/memory/cross-game-memory.v1.json`, crossGameMemory);
+    const manifest = buildAgentMemoryManifest({
+      state,
+      summary,
+      currentGameMemoryRoot: currentGameMemoryArtifact.root,
+      crossGameMemoryRoot: crossGameMemoryArtifact.root,
+      agentMemoryCount: Object.keys(summary.agentMemories).length
+    });
+    agentMemoryArtifact = await storage.putJson(`${state.id}/memory/agent-memory-manifest.v1.json`, manifest);
+  }
 
   const registryLabel = chainRecord.registryAddress
     ? `0G GameRegistry ${chainRecord.registryAddress}`
@@ -42,6 +64,9 @@ export async function persistGameArtifacts(
       summaryArtifact,
       rawTranscriptArtifact: options?.rawTranscriptArtifact,
       rawSummaryArtifact: options?.rawSummaryArtifact,
+      agentMemoryArtifact,
+      currentGameMemoryArtifact,
+      crossGameMemoryArtifact,
       eventCount: state.events.length,
       engine: options.engine,
       registry: registryLabel,
@@ -58,6 +83,9 @@ export async function persistGameArtifacts(
       summaryArtifact,
       rawTranscriptArtifact: options?.rawTranscriptArtifact,
       rawSummaryArtifact: options?.rawSummaryArtifact,
+      agentMemoryArtifact,
+      currentGameMemoryArtifact,
+      crossGameMemoryArtifact,
       eventCount: state.events.length,
       engine: options.engine,
       registry: registryLabel,
@@ -81,6 +109,9 @@ export async function persistGameArtifacts(
   return {
     publicTranscriptArtifact,
     privateAuditTranscriptArtifact,
-    summaryArtifact
+    summaryArtifact,
+    agentMemoryArtifact,
+    currentGameMemoryArtifact,
+    crossGameMemoryArtifact
   };
 }

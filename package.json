@@ -11,6 +11,7 @@
     "build": "tsc -p tsconfig.json",
     "demo:llm": "tsx src/demo/run-llm-game.ts",
     "bot:telegram": "tsx src/bot/run-telegram-bot.ts",
+    "bot:telegram:manage": "bash scripts/public-demo-bot.sh",
     "demo:0g": "STORAGE_BACKEND=0g tsx src/demo/run-local-game.ts",
     "web:serve": "node scripts/serve-web.mjs",
     "contracts:compile": "node scripts/compile-contracts.mjs",
@@ -27,6 +28,7 @@
     "url": "https://github.com/mikelsl/0g-hackthon/issues"
   },
   "dependencies": {
+    "@0gfoundation/0g-compute-ts-sdk": "^0.8.3",
     "@0gfoundation/0g-storage-ts-sdk": "^1.2.9",
     "@types/node": "^22.10.0",
     "dotenv": "^16.4.7",

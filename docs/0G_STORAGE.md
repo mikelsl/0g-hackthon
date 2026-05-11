@@ -81,7 +81,7 @@ Returned artifact:
 
 ## Notes
 
-- Uploads require a funded 0G wallet.
+- Uploads require a funded 0G wallet. Compute ledger/provider balances do **not** pay Storage gas; keep a separate wallet gas buffer for 0G Storage uploads. On 2026-05-11, an upload revert was traced to the wallet having only ~0.001 0G after funds were moved into Compute. Refunding 0.5 0G from Compute ledger restored Storage uploads.
 - Downloads do not require a private key, but download support is not wired into the app yet.
 - Standard mode may be under maintenance according to the starter kit notes; prefer turbo for demo.
 - For private role/action logs, future versions should encrypt before upload.

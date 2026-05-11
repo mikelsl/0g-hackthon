@@ -40,12 +40,25 @@ export interface GameState {
   updatedAt: string;
 }
 
+export interface AgentMemorySnapshot {
+  playerId: string;
+  displayName: string;
+  personaId?: string;
+  role: string;
+  survived: boolean;
+  outcome: 'won' | 'lost';
+  keyTakeaways: string[];
+  suspicionTargets: string[];
+  trustTargets: string[];
+}
+
 export interface GameSummary {
   gameId: string;
   winner: Camp;
   transcriptRoot: string;
   highlights: string[];
   reputationDeltas: Record<string, ReputationDelta>;
+  agentMemories?: Record<string, AgentMemorySnapshot>;
 }
 
 export interface ReputationDelta {

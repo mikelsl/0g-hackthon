@@ -31,13 +31,14 @@ export class ZeroGGameRegistryAdapter implements GameRegistryAdapter {
     const provider = new ethers.JsonRpcProvider(this.rpc);
     const signer = new ethers.Wallet(this.privateKey, provider);
     const contract = new ethers.Contract(this.address, await this.loadAbi(), signer);
+    let nonce = await provider.getTransactionCount(signer.address, 'pending');
     const gameKey = ethers.id(state.id);
     const reputationRoot = asBytes32(sha256Json(summary.reputationDeltas));
 
     const existing = await contract.games(gameKey);
     let createTxHash: string | undefined;
     if (existing.creator === ethers.ZeroAddress) {
-      const createTx = await contract.createGame(gameKey);
+      const createTx = await contract.createGame(gameKey, { nonce: nonce++ });
       const createReceipt = await createTx.wait();
       createTxHash = createReceipt.hash;
     }
@@ -47,7 +48,8 @@ export class ZeroGGameRegistryAdapter implements GameRegistryAdapter {
       winnerEnum(summary.winner),
       asBytes32(transcriptRoot),
       asBytes32(summaryRoot),
-      reputationRoot
+      reputationRoot,
+      { nonce: nonce++ }
     );
     const finalizeReceipt = await finalizeTx.wait();
 

@@ -7,6 +7,7 @@ interface PendingRequest {
   type: 'speech' | 'vote' | 'nightKill' | 'seerCheck';
   player: Player;
   state: GameState;
+  allowedTargetIds?: string[];
   resolve: (value: string) => void;
   reject: (error: Error) => void;
   createdAt: number;
@@ -23,8 +24,8 @@ export class QueuedHumanActionProvider implements HumanActionProvider {
     return this.enqueue('speech', player, state);
   }
 
-  async chooseVote(player: Player, state: GameState): Promise<string> {
-    return this.enqueue('vote', player, state);
+  async chooseVote(player: Player, state: GameState, allowedTargetIds?: string[]): Promise<string> {
+    return this.enqueue('vote', player, state, allowedTargetIds);
   }
 
   async chooseNightKill(player: Player, state: GameState): Promise<string> {
@@ -58,6 +59,14 @@ export class QueuedHumanActionProvider implements HumanActionProvider {
     return had;
   }
 
+  abortAll(reason = 'Game aborted by operator'): void {
+    for (const [key, req] of this.pending.entries()) {
+      clearTimeout(req.timeout);
+      req.reject(new Error(reason));
+      this.pending.delete(key);
+    }
+  }
+
   getPendingForPlayer(playerId: string): PendingRequest | undefined {
     return this.pending.get(`speech:${playerId}`)
       ?? this.pending.get(`vote:${playerId}`)
@@ -65,18 +74,19 @@ export class QueuedHumanActionProvider implements HumanActionProvider {
       ?? this.pending.get(`seerCheck:${playerId}`);
   }
 
-  listPending(): Array<{ key: string; type: 'speech' | 'vote' | 'nightKill' | 'seerCheck'; playerId: string; playerName: string; createdAt: number; timeoutAt: number }> {
+  listPending(): Array<{ key: string; type: 'speech' | 'vote' | 'nightKill' | 'seerCheck'; playerId: string; playerName: string; createdAt: number; timeoutAt: number; allowedTargetIds?: string[] }> {
     return [...this.pending.entries()].map(([key, req]) => ({
       key,
       type: req.type,
       playerId: req.player.id,
       playerName: req.player.displayName,
       createdAt: req.createdAt,
-      timeoutAt: req.createdAt + this.timeoutPolicy.timeoutMs
+      timeoutAt: req.createdAt + this.timeoutPolicy.timeoutMs,
+      allowedTargetIds: req.allowedTargetIds
     }));
   }
 
-  private enqueue(type: 'speech' | 'vote' | 'nightKill' | 'seerCheck', player: Player, state: GameState): Promise<string> {
+  private enqueue(type: 'speech' | 'vote' | 'nightKill' | 'seerCheck', player: Player, state: GameState, allowedTargetIds?: string[]): Promise<string> {
     const key = `${type}:${player.id}`;
     if (this.pending.has(key)) throw new Error(`Pending ${type} already exists for ${player.id}`);
     return new Promise((resolve, reject) => {
@@ -88,7 +98,7 @@ export class QueuedHumanActionProvider implements HumanActionProvider {
         req.resolve(this.fallback(req));
       }, this.timeoutPolicy.timeoutMs);
 
-      this.pending.set(key, { type, player, state, resolve, reject, createdAt: Date.now(), timeout });
+      this.pending.set(key, { type, player, state, allowedTargetIds, resolve, reject, createdAt: Date.now(), timeout });
     });
   }
 

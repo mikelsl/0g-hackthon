@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { WerewolfEngine } from '../engine/WerewolfEngine.js';
-import { LlmComputeAdapter } from '../compute/LlmComputeAdapter.js';
+import { createComputeAdapter } from '../compute/createComputeAdapter.js';
 import { createStorageAdapter } from '../storage/createStorageAdapter.js';
 import { createGameRegistryAdapter } from '../chain/createGameRegistryAdapter.js';
 import { persistGameArtifacts } from '../pipeline/persistGameArtifacts.js';
@@ -16,7 +16,7 @@ const players = [
 ];
 
 const gameId = `llm-demo-${Date.now()}`;
-const engine = new WerewolfEngine(new LlmComputeAdapter());
+const engine = new WerewolfEngine(createComputeAdapter());
 const storage = createStorageAdapter();
 const chain = createGameRegistryAdapter();
 
@@ -25,6 +25,7 @@ const { state, summary } = await engine.runToEnd(initial, Number(process.env.DEM
 
 await writeLocalShadowArtifact(`${gameId}/transcript.json`, state.events);
 await writeLocalShadowArtifact(`${gameId}/summary.raw.json`, summary);
+if (summary.agentMemories) await writeLocalShadowArtifact('latest-agent-memories.json', summary.agentMemories);
 const rawTranscriptArtifact = await storage.putJson(`${gameId}/transcript.json`, state.events);
 const rawSummaryArtifact = await storage.putJson(`${gameId}/summary.raw.json`, summary);
 const chainRecord = await chain.finalizeGame(state, summary, rawTranscriptArtifact.root, rawSummaryArtifact.root);

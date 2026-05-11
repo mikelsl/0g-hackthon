@@ -7,7 +7,7 @@ export interface AgentSpeechResult {
 
 export interface ComputeAdapter {
   generateSpeech(player: Player, state: GameState): Promise<AgentSpeechResult>;
-  chooseVote(player: Player, state: GameState): Promise<string>;
+  chooseVote(player: Player, state: GameState, allowedTargetIds?: string[]): Promise<string>;
   chooseNightKill(wolf: Player, state: GameState): Promise<string>;
   chooseSeerCheck(seer: Player, state: GameState): Promise<string>;
 }

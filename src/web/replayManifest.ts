@@ -12,6 +12,9 @@ export interface ReplayManifestInput {
   summaryArtifact: StoredArtifact;
   rawTranscriptArtifact?: StoredArtifact;
   rawSummaryArtifact?: StoredArtifact;
+  agentMemoryArtifact?: StoredArtifact;
+  currentGameMemoryArtifact?: StoredArtifact;
+  crossGameMemoryArtifact?: StoredArtifact;
   eventCount: number;
   engine?: string;
   registry?: string;
@@ -69,6 +72,36 @@ export function buildReplayManifest(input: ReplayManifestInput): Record<string, 
       txUrl: txUrl(input.summaryArtifact.txHash),
       localSha256: input.summaryArtifact.localSha256 ?? null
     },
+    agentMemories: input.agentMemoryArtifact ? {
+      uri: input.agentMemoryArtifact.uri,
+      root: input.agentMemoryArtifact.root,
+      txHash: input.agentMemoryArtifact.txHash ?? null,
+      txUrl: txUrl(input.agentMemoryArtifact.txHash),
+      localSha256: input.agentMemoryArtifact.localSha256 ?? null,
+      artifactType: 'agent-memory-manifest',
+      agentCount: Object.keys(input.summary.agentMemories ?? {}).length
+    } : null,
+    memoryLayers: input.agentMemoryArtifact ? {
+      schemaVersion: '0g-mindgames.agent-memory.v1',
+      currentGameMemory: input.currentGameMemoryArtifact ? {
+        uri: input.currentGameMemoryArtifact.uri,
+        root: input.currentGameMemoryArtifact.root,
+        txHash: input.currentGameMemoryArtifact.txHash ?? null,
+        txUrl: txUrl(input.currentGameMemoryArtifact.txHash),
+        localSha256: input.currentGameMemoryArtifact.localSha256 ?? null,
+        purpose: 'Grounds claims about this match only: speeches, votes, mentions, and private self-knowledge.'
+      } : null,
+      crossGameMemory: input.crossGameMemoryArtifact ? {
+        uri: input.crossGameMemoryArtifact.uri,
+        root: input.crossGameMemoryArtifact.root,
+        txHash: input.crossGameMemoryArtifact.txHash ?? null,
+        txUrl: txUrl(input.crossGameMemoryArtifact.txHash),
+        localSha256: input.crossGameMemoryArtifact.localSha256 ?? null,
+        purpose: 'Seeds future matches as long-term tendency; must not be presented as current-game evidence.'
+      } : null,
+      rule: 'Agent public claims about current-game tone/behavior must be grounded in currentGameMemory. Cross-game memory is only a labeled prior/tie-breaker.'
+    } : null,
+    agentMemoryPreview: input.summary.agentMemories ?? {},
     rawArtifacts: {
       transcript: input.rawTranscriptArtifact ? {
         uri: input.rawTranscriptArtifact.uri,
@@ -109,7 +142,10 @@ export function buildReplayManifest(input: ReplayManifestInput): Record<string, 
         : 'Run with STORAGE_BACKEND=0g to attach 0G Galileo transaction hashes.',
       input.chainRecord?.registryAddress
         ? 'This replay manifest includes the linked 0G GameRegistry record for contract-level verification.'
-        : 'Next milestone: register these roots in GameRegistry.sol on 0G Chain so replay + result verification are both on-chain addressable.'
+        : 'Next milestone: register these roots in GameRegistry.sol on 0G Chain so replay + result verification are both on-chain addressable.',
+      input.agentMemoryArtifact
+        ? 'Agent memory is persisted as a 0G-rooted layered manifest: current-game evidence, cross-game memory state, and a manifest that links both roots.'
+        : 'Agent memory snapshots are not attached yet.'
     ],
     replayPreview: [
       {

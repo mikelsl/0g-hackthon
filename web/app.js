@@ -44,6 +44,64 @@ function renderTimeline(items) {
   }
 }
 
+function renderAgentMemories(memories = {}) {
+  const root = $('agentMemoryList');
+  root.innerHTML = '';
+  const entries = Object.values(memories);
+  if (entries.length === 0) {
+    root.innerHTML = '<p class="muted">No agent memory snapshot attached for this replay.</p>';
+    return;
+  }
+
+  for (const memory of entries) {
+    const card = document.createElement('article');
+    card.className = 'memory-card';
+    card.innerHTML = `
+      <div class="memory-head">
+        <strong>${memory.displayName}</strong>
+        <span>${memory.personaId || 'unknown persona'} · ${memory.outcome} · ${memory.survived ? 'survived' : 'died'}</span>
+      </div>
+      <p>${(memory.keyTakeaways || []).join(' ')}</p>
+      <small>Suspicion: ${(memory.suspicionTargets || []).join(', ') || '—'}<br/>Trust: ${(memory.trustTargets || []).join(', ') || '—'}</small>
+    `;
+    root.appendChild(card);
+  }
+}
+
+function renderJudgeMap(data) {
+  const root = $('judgeMap');
+  const chainLinked = Boolean(data.chain?.registryAddress);
+  root.innerHTML = `
+    <article class="judge-card">
+      <strong>1. Transcript</strong>
+      <p>The public replay transcript is the judge-safe storytelling view. It removes hidden-role leakage so judges can watch the match flow without spoilers.</p>
+      <small>Root: ${data.transcript?.root || '—'}</small>
+    </article>
+    <article class="judge-card">
+      <strong>2. Audit Transcript</strong>
+      <p>The private audit transcript keeps night actions and private notes. It is the forensic source when someone wants to inspect whether the public replay omitted hidden information correctly.</p>
+      <small>Root: ${data.auditTranscript?.root || '—'}</small>
+    </article>
+    <article class="judge-card">
+      <strong>3. Summary</strong>
+      <p>The summary compresses the match outcome into winner, highlights, and reputation-style deltas. This is the compact state judges compare against the replay and on-chain result.</p>
+      <small>Root: ${data.summary?.root || '—'}</small>
+    </article>
+    <article class="judge-card">
+      <strong>4. Agent Memory</strong>
+      <p>The memory artifact records what each agent carries into the next match. That makes post-game adaptation visible and verifiable instead of hidden inside prompts.</p>
+      <small>Root: ${data.agentMemories?.root || '—'}</small>
+    </article>
+    <article class="judge-card wide ${chainLinked ? 'ok' : 'warn'}">
+      <strong>5. Chain Record</strong>
+      <p>${chainLinked
+        ? 'The chain record anchors the raw transcript/summary roots so judges can confirm that the uploaded artifacts and the contract-level record refer to the same completed game.'
+        : 'This replay is still useful for local verification, but it is not yet anchored to a live GameRegistry record.'}</p>
+      <small>${chainLinked ? `Registry: ${data.chain.registryAddress}` : 'No live registry link attached yet.'}</small>
+    </article>
+  `;
+}
+
 function bindTx(linkId, txHash, txUrl, fallbackText = 'No tx yet') {
   const el = $(linkId);
   if (txHash && typeof txHash === 'string' && txHash.startsWith('0x')) {
@@ -97,6 +155,19 @@ function render(data) {
   setText('summaryUri', data.summary.uri);
   bindTx('summaryTx', data.summary.txHash, data.summary.txUrl);
 
+  setText('agentMemoryRoot', data.agentMemories?.root || '—');
+  setText('agentMemoryUri', data.agentMemories?.uri || '—');
+  bindTx('agentMemoryTx', data.agentMemories?.txHash, data.agentMemories?.txUrl, 'No memory tx');
+
+  const currentMemory = data.memoryLayers?.currentGameMemory;
+  const crossMemory = data.memoryLayers?.crossGameMemory;
+  setText('currentMemoryRoot', currentMemory?.root || '—');
+  setText('currentMemoryNote', currentMemory?.purpose || 'Current-game memory layer not attached yet.');
+  bindTx('currentMemoryTx', currentMemory?.txHash, currentMemory?.txUrl, 'No current-memory tx');
+  setText('crossMemoryRoot', crossMemory?.root || '—');
+  setText('crossMemoryNote', crossMemory?.purpose || 'Cross-game memory layer not attached yet.');
+  bindTx('crossMemoryTx', crossMemory?.txHash, crossMemory?.txUrl, 'No cross-memory tx');
+
   setText('chainRegistryAddress', data.chain?.registryAddress || 'Not linked');
   setText('chainGameKey', data.chain?.gameKey || '—');
   setText('chainTranscriptRoot', data.chain?.recordedTranscriptRoot || '—');
@@ -120,8 +191,10 @@ function render(data) {
     ? '链上 transcript root 对应原始完整 transcript，不是 judge-safe 公共 transcript。'
     : '还没有真实链上 finalize 记录。');
 
+  renderJudgeMap(data);
   renderChecklist(data.verificationChecklist);
   renderTimeline(data.replayPreview);
+  renderAgentMemories(data.agentMemoryPreview || {});
 }
 
 document.addEventListener('click', async (event) => {

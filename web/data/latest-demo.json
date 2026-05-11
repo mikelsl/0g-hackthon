@@ -1,66 +1,207 @@
 {
-  "networkLabel": "0G Galileo Testnet",
+  "networkLabel": "0G Mainnet",
   "storageMode": "0G Storage turbo",
-  "gameId": "demo-1778392688003",
-  "winner": "wolves",
-  "eventCount": 28,
-  "engine": "Mock agents + WerewolfEngine MVP",
-  "registry": "0G GameRegistry 0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553",
-  "generatedAt": "2026-05-10T05:59:32.006Z",
+  "gameId": "tg-1778501266590",
+  "winner": "villagers",
+  "eventCount": 36,
+  "engine": "Telegram + 0G Compute Router speech + mock decisions",
+  "registry": "0G Mainnet GameRegistry 0x5677F20bD56538F20051Fe8Bf002e6D06780d85c",
+  "generatedAt": "2026-05-11T12:18:00.768Z",
   "transcript": {
-    "uri": "0g://testnet/turbo/0x0e4d3d617b7055c17d0d501bea7356303902938fd397a467ba6f5bba94225d08",
-    "root": "0x0e4d3d617b7055c17d0d501bea7356303902938fd397a467ba6f5bba94225d08",
-    "txHash": "0x8d62ab3f9376e50c74666b4d43686f02d7deee8df6c568f7bcaae7b936331f3d",
-    "txUrl": "https://chainscan-galileo.0g.ai/tx/0x8d62ab3f9376e50c74666b4d43686f02d7deee8df6c568f7bcaae7b936331f3d",
-    "localSha256": "0xbb6d86840a9e90f9c1a97202b0c38cf6caf92937b5a64505fd15df98923c641f"
+    "uri": "0g://testnet/turbo/0xad7b2d20ac2c3c2770301212788c5b672bb318997c9daf6a14746179a8660a92",
+    "root": "0xad7b2d20ac2c3c2770301212788c5b672bb318997c9daf6a14746179a8660a92",
+    "txHash": "0x1d58d46854ea497bcdaacb451e83349cd66088f6079d8168ad32d665cf7f3334",
+    "txUrl": "https://chainscan-galileo.0g.ai/tx/0x1d58d46854ea497bcdaacb451e83349cd66088f6079d8168ad32d665cf7f3334",
+    "localSha256": "0x909d46b83beb099b932287083de2c14e91713d6e68654db24804ad4a816fc9b2"
   },
   "auditTranscript": {
-    "uri": "0g://testnet/turbo/0xc2cda8e9e25ba2af7431d6d94f6d581db56fe504f36936fcec6fe67e794a06a2",
-    "root": "0xc2cda8e9e25ba2af7431d6d94f6d581db56fe504f36936fcec6fe67e794a06a2",
-    "txHash": "0xd56361b2f7499ed3e58275ea87d3ed69b56f01cd025a69b3c44deeb26505e896",
-    "txUrl": "https://chainscan-galileo.0g.ai/tx/0xd56361b2f7499ed3e58275ea87d3ed69b56f01cd025a69b3c44deeb26505e896",
-    "localSha256": "0x7db645e2b8c245ed8abf96bc65b83974a1f1ec3d994eca1acca7759abb2212c4"
+    "uri": "0g://testnet/turbo/0xc4cb33df0eb051e451906046709f9fec50a827fa4801136c26c00ca2b8fadbb8",
+    "root": "0xc4cb33df0eb051e451906046709f9fec50a827fa4801136c26c00ca2b8fadbb8",
+    "txHash": "0x4e996e685cfc264e44dd4f399f43a5e4c21fff3a5d818ebcb4c91b5c3eef2c22",
+    "txUrl": "https://chainscan-galileo.0g.ai/tx/0x4e996e685cfc264e44dd4f399f43a5e4c21fff3a5d818ebcb4c91b5c3eef2c22",
+    "localSha256": "0xc78d47c703cc8725a9b7ebd5fc547ea4a43227756167ca2f004beccad89a7cbf"
   },
   "summary": {
-    "uri": "0g://testnet/turbo/0xe3db8f7017c6ba43a1001eb87372e944fca27acccb7668cccc2187ab735db373",
-    "root": "0xe3db8f7017c6ba43a1001eb87372e944fca27acccb7668cccc2187ab735db373",
-    "txHash": "0x8e135bb7a78958f5f3c6d21b85fec07b4fa2eee98f89f7d17c77804f20450a3a",
-    "txUrl": "https://chainscan-galileo.0g.ai/tx/0x8e135bb7a78958f5f3c6d21b85fec07b4fa2eee98f89f7d17c77804f20450a3a",
-    "localSha256": "0x828b53c2183be1c1c93d62e74d1d9cd32384eeb5d349937fbd01a69e6843525a"
+    "uri": "0g://testnet/turbo/0x640ab2f729433997111eb74d32bcd895a061812d68de3745db590e1ea900d7e3",
+    "root": "0x640ab2f729433997111eb74d32bcd895a061812d68de3745db590e1ea900d7e3",
+    "txHash": "0x711277344f5422ec9a14f2b1c33e5917ba6978987e8962eb61ead17cdc461c34",
+    "txUrl": "https://chainscan-galileo.0g.ai/tx/0x711277344f5422ec9a14f2b1c33e5917ba6978987e8962eb61ead17cdc461c34",
+    "localSha256": "0xfc9e0467df1f770d8a9271319725a1296ac6dc2c70d797ced8c6afc9679c52a4"
+  },
+  "agentMemories": {
+    "uri": "0g://testnet/turbo/0xa8c2566f2b6aa664d3515e2595537bf1329a2cd8210712747e2750bb5010a7f5",
+    "root": "0xa8c2566f2b6aa664d3515e2595537bf1329a2cd8210712747e2750bb5010a7f5",
+    "txHash": "0x16654729fd5f7308f4bea746879eb493d0c3d8f4e840b983c3f38a1f25af3111",
+    "txUrl": "https://chainscan-galileo.0g.ai/tx/0x16654729fd5f7308f4bea746879eb493d0c3d8f4e840b983c3f38a1f25af3111",
+    "localSha256": "0xd63c5fd8a737e7d9a74dc8e2f222744a46d586304247b78a5b714b8164abb3d1",
+    "artifactType": "agent-memory-manifest",
+    "agentCount": 5
+  },
+  "memoryLayers": {
+    "schemaVersion": "0g-mindgames.agent-memory.v1",
+    "currentGameMemory": {
+      "uri": "0g://testnet/turbo/0xdf3210acfcf86d41547de557a66761329e4afae8f5d6c01dfc18f1c6b2b52c19",
+      "root": "0xdf3210acfcf86d41547de557a66761329e4afae8f5d6c01dfc18f1c6b2b52c19",
+      "txHash": "0xe5c1f0cbdcfc3aff1e4933c800a359bc21ffb570156ba7cf7f664fac4ec0c5c4",
+      "txUrl": "https://chainscan-galileo.0g.ai/tx/0xe5c1f0cbdcfc3aff1e4933c800a359bc21ffb570156ba7cf7f664fac4ec0c5c4",
+      "localSha256": "0xe22803655acd454e0530b147018d1d18d3e41291bb2af7318b514a22a81cf8df",
+      "purpose": "Grounds claims about this match only: speeches, votes, mentions, and private self-knowledge."
+    },
+    "crossGameMemory": {
+      "uri": "0g://testnet/turbo/0xef04e8383d90ec142e9f773eba44feafb9583e9bd03dc787a8c8a96959cfe353",
+      "root": "0xef04e8383d90ec142e9f773eba44feafb9583e9bd03dc787a8c8a96959cfe353",
+      "txHash": "0xb41a2c798e314c66a1dd17c8d7412bfd921b95951bf958086c5462b150952e15",
+      "txUrl": "https://chainscan-galileo.0g.ai/tx/0xb41a2c798e314c66a1dd17c8d7412bfd921b95951bf958086c5462b150952e15",
+      "localSha256": "0xc592eb4e539238eb24b8e282b163d6cffa9acd26a4a1f36f2656a1f6dacbc177",
+      "purpose": "Seeds future matches as long-term tendency; must not be presented as current-game evidence."
+    },
+    "rule": "Agent public claims about current-game tone/behavior must be grounded in currentGameMemory. Cross-game memory is only a labeled prior/tie-breaker."
+  },
+  "agentMemoryPreview": {
+    "a4": {
+      "playerId": "a4",
+      "displayName": "Shade",
+      "personaId": "silent-killer",
+      "role": "villager",
+      "survived": false,
+      "outcome": "won",
+      "keyTakeaways": [
+        "Current strategy produced a winning outcome.",
+        "Died before game end; survival heuristics may need improvement.",
+        "No memorable final speech recorded."
+      ],
+      "suspicionTargets": [
+        "a1",
+        "u509391895"
+      ],
+      "trustTargets": [
+        "a3",
+        "u509391895"
+      ]
+    },
+    "a3": {
+      "playerId": "a3",
+      "displayName": "Riot",
+      "personaId": "chaos-wolf",
+      "role": "villager",
+      "survived": true,
+      "outcome": "won",
+      "keyTakeaways": [
+        "Current strategy produced a winning outcome.",
+        "Survived to the endgame.",
+        "Last public stance: Riot: I do not trust how quickly the room is simplifying around Mira. Wolves love a clean story."
+      ],
+      "suspicionTargets": [
+        "a1",
+        "u509391895"
+      ],
+      "trustTargets": [
+        "a4",
+        "u509391895"
+      ]
+    },
+    "a1": {
+      "playerId": "a1",
+      "displayName": "Ada",
+      "personaId": "analyst",
+      "role": "villager",
+      "survived": false,
+      "outcome": "won",
+      "keyTakeaways": [
+        "Current strategy produced a winning outcome.",
+        "Died before game end; survival heuristics may need improvement.",
+        "Last public stance: Ada: My read is not emotional here: the cleanest inconsistency is around Mike. If they are village, they need to explain their path."
+      ],
+      "suspicionTargets": [
+        "u509391895",
+        "a5"
+      ],
+      "trustTargets": [
+        "a4",
+        "a3"
+      ]
+    },
+    "a2": {
+      "playerId": "a2",
+      "displayName": "Charm",
+      "personaId": "charmer",
+      "role": "villager",
+      "survived": false,
+      "outcome": "won",
+      "keyTakeaways": [
+        "Current strategy produced a winning outcome.",
+        "Died before game end; survival heuristics may need improvement.",
+        "Last public stance: Charm: Riot, I can see a village version of you, but your current posture needs explaining. Talk me out of this read."
+      ],
+      "suspicionTargets": [
+        "a1",
+        "u509391895"
+      ],
+      "trustTargets": [
+        "a4",
+        "a3"
+      ]
+    },
+    "a5": {
+      "playerId": "a5",
+      "displayName": "Mira",
+      "personaId": "empath",
+      "role": "wolf",
+      "survived": false,
+      "outcome": "lost",
+      "keyTakeaways": [
+        "Current strategy failed; adjust suspicion calibration next time.",
+        "Died before game end; survival heuristics may need improvement.",
+        "Last public stance: Mira: I am uneasy with how Riot is being handled. It feels less like solving and more like people checking where the wind goes."
+      ],
+      "suspicionTargets": [
+        "a1",
+        "u509391895"
+      ],
+      "trustTargets": [
+        "a4",
+        "a3"
+      ]
+    }
   },
   "rawArtifacts": {
     "transcript": {
-      "uri": "0g://testnet/turbo/0x14996b8fd666c015ecf47d7d4f88fe6db6334e7422561099737b8b625d0c24c1",
-      "root": "0x14996b8fd666c015ecf47d7d4f88fe6db6334e7422561099737b8b625d0c24c1",
-      "txHash": "0x60a29e2ea2c1aba55a000f38121ec7e7010575379257a76f54fc11a4af78ba30",
-      "txUrl": "https://chainscan-galileo.0g.ai/tx/0x60a29e2ea2c1aba55a000f38121ec7e7010575379257a76f54fc11a4af78ba30",
-      "localSha256": "0x329f5b514e46934b54a799a017f77978ce0002892c388da8cae4bbcfcb194880"
+      "uri": "0g://testnet/turbo/0x1ee71738378263a4644a0cc7cecfba981d6fa0f834b7d9074d519acdcc116bb8",
+      "root": "0x1ee71738378263a4644a0cc7cecfba981d6fa0f834b7d9074d519acdcc116bb8",
+      "txHash": "0xc620819dd0fa0811606645fa09ca33c1255c917fb57d6b6435cc0069839a90a5",
+      "txUrl": "https://chainscan-galileo.0g.ai/tx/0xc620819dd0fa0811606645fa09ca33c1255c917fb57d6b6435cc0069839a90a5",
+      "localSha256": "0xc7d7a49ecdad6a15abdcccdfeb56d6db89653e9ad9500b5cc0407b42625e75d5"
     },
     "summary": {
-      "uri": "0g://testnet/turbo/0x54702be6ca09216990d79e8e3f43073e501840e2ee0a274f405cad2cd9dc9dfc",
-      "root": "0x54702be6ca09216990d79e8e3f43073e501840e2ee0a274f405cad2cd9dc9dfc",
-      "txHash": "0x09f048d743bae0f7796f74bf3357d3caeebcaf41a741d17d0f9f1d8b2ab73d38",
-      "txUrl": "https://chainscan-galileo.0g.ai/tx/0x09f048d743bae0f7796f74bf3357d3caeebcaf41a741d17d0f9f1d8b2ab73d38",
-      "localSha256": "0x187b0076033aa85bcea671bbd20108e28f65453395aec7b27052fce2ef09ba12"
+      "uri": "0g://testnet/turbo/0x8218f7b2c8d4bbade286171a96804ebff2e30402b044eec88c7ade90e2115409",
+      "root": "0x8218f7b2c8d4bbade286171a96804ebff2e30402b044eec88c7ade90e2115409",
+      "txHash": "0xda1ed223351b633835c3781ff677ba4e212d93352a094e96662d8556f0680541",
+      "txUrl": "https://chainscan-galileo.0g.ai/tx/0xda1ed223351b633835c3781ff677ba4e212d93352a094e96662d8556f0680541",
+      "localSha256": "0x0b3a18ad400e916ab766cf2c8f7056b2ffc9508f8553eb0bd74e38adb94970d2"
     }
   },
   "chain": {
-    "registryAddress": "0xCe4CE3b64A3b0Bb9f3a98A4f979c2cd95fd21553",
-    "gameKey": "0x3725e1f80fa10282cff4f31b29d963225524fbf667ebe944b5ac1b397ef11b59",
-    "txHash": "0x016ac9757f818baebbbce99f225a306cedfd12ad387a3e381f9c39d05d93797b",
-    "txUrl": "https://chainscan-galileo.0g.ai/tx/0x016ac9757f818baebbbce99f225a306cedfd12ad387a3e381f9c39d05d93797b",
-    "createTxHash": "0x253eda2ff1b205912290be01955c3fac4a7bcba13f1c171913c54e60dbcd6271",
-    "createTxUrl": "https://chainscan-galileo.0g.ai/tx/0x253eda2ff1b205912290be01955c3fac4a7bcba13f1c171913c54e60dbcd6271",
-    "recordedTranscriptRoot": "0x14996b8fd666c015ecf47d7d4f88fe6db6334e7422561099737b8b625d0c24c1",
-    "recordedSummaryRoot": "0x54702be6ca09216990d79e8e3f43073e501840e2ee0a274f405cad2cd9dc9dfc",
-    "recordedReputationRoot": "0xca89d87916970cd22e506f2e4c3834ce25faec4dac44954e619d8408afd60080"
+    "registryAddress": "0x5677F20bD56538F20051Fe8Bf002e6D06780d85c",
+    "gameKey": "0xcf8ca2d985b74831267237549da457119b32019091f04b29d65fa78544b51c13",
+    "txHash": "0x92b37e58678b0e52c7edc805e47fb7f380962c83536fa541f4a85690a0210851",
+    "txUrl": "https://chainscan.0g.ai/tx/0x92b37e58678b0e52c7edc805e47fb7f380962c83536fa541f4a85690a0210851",
+    "createTxHash": "0xe2497ebece1b1b6f40773d21282cef54093c5532fa27856259c963a15b6ca669",
+    "createTxUrl": "https://chainscan.0g.ai/tx/0xe2497ebece1b1b6f40773d21282cef54093c5532fa27856259c963a15b6ca669",
+    "recordedTranscriptRoot": "0x1ee71738378263a4644a0cc7cecfba981d6fa0f834b7d9074d519acdcc116bb8",
+    "recordedSummaryRoot": "0x8218f7b2c8d4bbade286171a96804ebff2e30402b044eec88c7ade90e2115409",
+    "recordedReputationRoot": "0xaf93c30966b5338aaaacfefd2a32cf707558aca6f454661d9db5faa1563f1290",
+    "mainnetContractUrl": "https://chainscan.0g.ai/address/0x5677F20bD56538F20051Fe8Bf002e6D06780d85c",
+    "deployTxHash": "0x59f1423635ec1ffe7aac20dc19739c56c527841b93298fae4fe733b6f54a17ed",
+    "deployTxUrl": "https://chainscan.0g.ai/tx/0x59f1423635ec1ffe7aac20dc19739c56c527841b93298fae4fe733b6f54a17ed"
   },
   "verificationChecklist": [
     "Game summary and transcript were uploaded through the official 0G TypeScript Storage SDK.",
     "Each artifact has a deterministic root hash for replay verification.",
     "Public replay transcript and private audit transcript are separated so live/group views do not leak hidden role information.",
     "0G Galileo transaction hashes are available for both uploaded artifacts.",
-    "This replay manifest includes the linked 0G GameRegistry record for contract-level verification."
+    "This replay manifest includes the linked 0G GameRegistry record for contract-level verification.",
+    "Agent memory is persisted as a 0G-rooted layered manifest: current-game evidence, cross-game memory state, and a manifest that links both roots.",
+    "0G mainnet GameRegistry proof is available for the finalized game roots and winner."
   ],
   "replayPreview": [
     {
