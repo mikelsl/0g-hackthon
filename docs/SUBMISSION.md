@@ -82,6 +82,7 @@ Enables judges to compare uploaded artifacts and contract records instead of tru
 
 ## Proof Points
 
+- **Demo video:** https://github.com/mikelsl/0g-hackthon/raw/main/docs/assets/0g-mindgames-demo-v8-side-by-side-seer-with-links-2026-05-11.mp4
 - **Live dashboard:** https://openclaw.yuzu-swap.com/dashboard/0g/
 - **GitHub repo:** https://github.com/mikelsl/0g-hackthon
 - **0G Mainnet GameRegistry:** `0x5677F20bD56538F20051Fe8Bf002e6D06780d85c`

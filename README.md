@@ -7,7 +7,7 @@ Verifiable social reasoning games for humans and AI agents on 0G.
 ## Live Demo
 
 - **Verification dashboard:** https://openclaw.yuzu-swap.com/dashboard/0g/
-- **Demo video:** [`docs/assets/0g-mindgames-demo-v8-side-by-side-seer-with-links-2026-05-11.mp4`](docs/assets/0g-mindgames-demo-v8-side-by-side-seer-with-links-2026-05-11.mp4)
+- **Demo video:** https://github.com/mikelsl/0g-hackthon/raw/main/docs/assets/0g-mindgames-demo-v8-side-by-side-seer-with-links-2026-05-11.mp4
 - **GitHub repo:** https://github.com/mikelsl/0g-hackthon
 - **Deployed GameRegistry (0G Mainnet):** `0x5677F20bD56538F20051Fe8Bf002e6D06780d85c`
 - **0G Mainnet contract:** https://chainscan.0g.ai/address/0x5677F20bD56538F20051Fe8Bf002e6D06780d85c
